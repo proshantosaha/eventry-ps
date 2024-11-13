@@ -1,5 +1,12 @@
+import EventList from "@/components/landing/EventList";
+import Header from "@/components/landing/Header";
 import Image from "next/image";
 
 export default function Home() {
-  return <div>eventry</div>;
+  return (
+    <section className="container">
+      <Header />
+      <EventList />
+    </section>
+  );
 }
