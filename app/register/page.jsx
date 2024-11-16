@@ -1,18 +1,19 @@
-import LoginForm from "@/components/auth/LoginForm";
+import RegisterForm from "@/components/auth/RegisterForm";
 import Link from "next/link";
 import React from "react";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <section className="h-screen grid place-items-center">
       <div className="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md">
-        <h4 className="font-bold text-2xl">Sign in</h4>
+        <h4 className="font-bold text-2xl">Register</h4>
 
-        <LoginForm />
+        <RegisterForm />
+
         <span className="text-center text-xs text-gray-500">
-          Don't have an account?
-          <Link className="underline hover:text-indigo-600" href="/register">
-            Register
+          Already have an account?
+          <Link className="underline hover:text-indigo-600" href="/login">
+            Login
           </Link>
         </span>
       </div>
@@ -20,4 +21,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
