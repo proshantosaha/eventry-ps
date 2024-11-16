@@ -5,7 +5,7 @@ import React from "react";
 const LoginForm = () => {
   const onSubmit = () => {};
   return (
-    <form className="login-form" onSubmit={onSubmit}>
+    <form className="loginReg-form" onSubmit={onSubmit}>
       {/* <!-- email --> */}
       <div>
         <label htmlFor="email">Email Address</label>

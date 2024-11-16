@@ -2,7 +2,7 @@ import React from "react";
 
 const RegisterForm = () => {
   return (
-    <form className="login-form">
+    <form className="loginReg-form">
       {/* <!-- name --> */}
       <div>
         <label htmlFor="name">Full Name</label>
