@@ -13,7 +13,7 @@ const schema = new Schema({
     required: true,
     type: String,
   },
-  phon: {
+  phone: {
     required: true,
     type: String,
   },

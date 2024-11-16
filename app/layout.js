@@ -15,7 +15,7 @@ export default async function RootLayout({ children }) {
       <body>
         {" "}
         <Navbar />
-        <main class="py-8">{children}</main>
+        <main className="py-8">{children}</main>
       </body>
     </html>
   );
