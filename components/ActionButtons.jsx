@@ -2,9 +2,8 @@
 
 import { addInterestedEvent } from "@/app/actions";
 import { useAuth } from "@/app/hooks/useAuth";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { startTransition, useState, useTransition } from "react";
+import React, { useState, useTransition } from "react";
 
 const ActionButtons = ({ eventId, fromDetails, interestedUserIds }) => {
   const { auth } = useAuth();
@@ -12,11 +11,11 @@ const ActionButtons = ({ eventId, fromDetails, interestedUserIds }) => {
   const isInterested = interestedUserIds?.find((id) => id === auth?.id);
   const [interested, setInterested] = useState(isInterested);
 
-  const [isPending, setIsPending] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   async function toggleInterest() {
     if (auth) {
-      await addInterestedEvent(eventId, auth?.id);
+      addInterestedEvent(eventId, auth?.id);
       setInterested(!interested);
     } else {
       router.push("/login");
@@ -41,8 +40,8 @@ const ActionButtons = ({ eventId, fromDetails, interestedUserIds }) => {
           })
         }
         className={`w-full ${
-          interested && " bg-indigo-600 hover:bg-indigo-800"
-        } `}
+          interested && "bg-indigo-600 hover:bg-indigo-800"
+        }`}
       >
         Interested
       </button>

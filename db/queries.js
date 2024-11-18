@@ -47,6 +47,7 @@ async function updateInterest(eventId, authId) {
     event.save();
   }
 }
+
 export {
   getAllEvents,
   getEventById,
