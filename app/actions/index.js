@@ -3,6 +3,7 @@
 import {
   createUser,
   foundUserByCredentials,
+  updateGoing,
   updateInterest,
 } from "@/db/queries";
 import { revalidatePath } from "next/cache";
@@ -37,4 +38,14 @@ async function addInterestedEvent(eventId, authId) {
   revalidatePath("/");
 }
 
-export { registerUser, performLogin, addInterestedEvent };
+async function addGoingEvent(eventId, user) {
+  try {
+    await updateGoing(eventId, user?.id);
+  } catch (error) {
+    throw error;
+  }
+  revalidatePath("/");
+  redirect("/");
+}
+
+export { registerUser, performLogin, addInterestedEvent, addGoingEvent };
