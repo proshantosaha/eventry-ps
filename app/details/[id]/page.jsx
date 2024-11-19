@@ -4,7 +4,18 @@ import HeroSection from "@/components/detailsPage/HeroSection";
 import { getEventById } from "@/db/queries";
 import React from "react";
 
-const page = async ({ params: { id } }) => {
+export async function generateMetadata({ params: { id } }) {
+  const eventInfo = await getEventById(id);
+  return {
+    title: `Eventry - ${eventInfo?.name}`,
+    description: eventInfo?.details,
+    openGraph: {
+      images: [eventInfo?.imageUrl],
+    },
+  };
+}
+
+const EventDetailspage = async ({ params: { id } }) => {
   const eventInfo = await getEventById(id);
   return (
     <>
@@ -19,4 +30,4 @@ const page = async ({ params: { id } }) => {
   );
 };
 
-export default page;
+export default EventDetailspage;

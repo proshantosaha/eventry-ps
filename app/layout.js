@@ -5,7 +5,7 @@ import AuthProvider from "./providers/AuthProvider";
 
 export const metadata = {
   title: "Eventry App",
-  description: "",
+  description: "all events",
 };
 
 export default async function RootLayout({ children }) {
