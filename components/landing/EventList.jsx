@@ -2,8 +2,8 @@ import React from "react";
 import EventCard from "./EventCard";
 import { getAllEvents } from "@/db/queries";
 
-const EventList = async () => {
-  const allEvents = await getAllEvents();
+const EventList = async ({ query }) => {
+  const allEvents = await getAllEvents(query);
 
   console.log(allEvents);
 
