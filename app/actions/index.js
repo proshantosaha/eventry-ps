@@ -15,7 +15,7 @@ import { Resend } from "resend";
 async function registerUser(formData) {
   const user = Object.fromEntries(formData);
 
-  created = await createUser(user);
+  const created = await createUser(user);
   redirect("/login");
 }
 
@@ -58,7 +58,7 @@ async function sendEmail(eventId, user) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const message = `dear ${user.name}, your have been successfully registerd ,${event?.name}`;
 
-    sent = await resend.emails.send({
+    const sent = await resend.emails.send({
       form: "noreply@noreply.proshanto.io",
       to: user?.email,
       subject: "SuccessFully Registerd for the event",

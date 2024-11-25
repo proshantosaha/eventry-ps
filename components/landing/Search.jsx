@@ -17,6 +17,7 @@ const Search = () => {
     }
     replace(`${pathname}?${params.toString()}`);
   }
+
   return (
     <div>
       <input

@@ -1,40 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import { performLogin } from "@/app/actions";
+
 import { useAuth } from "@/app/hooks/useAuth";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 
 const LoginForm = () => {
   const [error, setError] = useState("");
+
   const { setAuth } = useAuth();
   const router = useRouter();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  async function onSubmit(event) {
+    event.preventDefault();
     try {
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(event.currentTarget);
       const found = await performLogin(formData);
+
       if (found) {
         setAuth(found);
         router.push("/");
       } else {
-        setError("please provide a valid login credntial");
+        setError("Please provide a valid login credential");
       }
-    } catch (error) {
+    } catch (err) {
       setError(err.message);
     }
-  };
+  }
+
   return (
     <>
-      <div>{error}</div>
+      <div className="my-2 text-red-500">{error}</div>
       <form className="loginReg-form" onSubmit={onSubmit}>
-        {/* <!-- email --> */}
         <div>
           <label htmlFor="email">Email Address</label>
           <input type="email" name="email" id="email" />
         </div>
-        {/* <!-- password --> */}
+
         <div>
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" />

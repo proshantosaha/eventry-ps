@@ -1,10 +1,11 @@
 import { eventModel } from "@/models/event-models";
 import { userModel } from "@/models/user-model";
+import mongoose from "mongoose";
+
 import {
   replaceMongoIdInArray,
   replaceMongoIdInObject,
 } from "@/utils/data-util";
-import mongoose from "mongoose";
 
 async function getAllEvents(query) {
   let allEvents = [];

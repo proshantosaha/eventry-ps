@@ -21,14 +21,14 @@ const ActionButtons = ({
 
   const [isPending, startTransition] = useTransition();
 
-  async function toggleInterest() {
+  const toggleInterest = async () => {
     if (auth) {
       addInterestedEvent(eventId, auth?.id);
-      setInterested(!interested);
+      setInterested(!isInterested);
     } else {
       router.push("/login");
     }
-  }
+  };
 
   const markGoing = () => {
     if (auth) {
@@ -58,8 +58,7 @@ const ActionButtons = ({
       <button
         disabled={auth && going}
         onClick={markGoing}
-        className="w-full text-center bg-[#464849] py-2 px-2 rounded-md border
-       border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:BG-[#3C3D3D] transition-colors active:translate-y-1"
+        className=" text-center w-full bg-[#464849] py-2 px-2 rounded-md border border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:bg-[#3C3D3D] transition-colors active:translate-y-1"
       >
         Going
       </button>
